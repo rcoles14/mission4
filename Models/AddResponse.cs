@@ -13,9 +13,12 @@ namespace mission4.Models
         public int id { get; set; }
         [Required]
         public string Title { get; set; }
+
+        //Foreign Key
         [Required]
-        public string Category { get; set; }
-        [Required]
+        public int CategoryID { get; set; }
+        public Category CategoryName { get; set; }
+        [Required(ErrorMessage = ("Enter a valid Year."))]
         public int Year { get; set; }
         [Required]
         public string Director { get; set; }

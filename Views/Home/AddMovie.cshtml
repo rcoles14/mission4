@@ -10,13 +10,18 @@
         <h1>Add Movies To the Database</h1>
 
 
-        <form method="post" class="float-left">
+        <form method="post" class="form">
             <label asp-for="Title">Title: </label>
             <input asp-for="Title" /><br />
 
-            <label asp-for="Category">Category: </label>
-            <input asp-for="Category" /><br />
-
+            <label asp-for="CategoryID">Category: </label>
+            <select asp-for="CategoryID">
+                <option disabled selected value=""></option>
+                @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryID">@c.CategoryName</option>
+            }
+            </select><br />
             <label asp-for="Year">Year: </label>
             <input asp-for="Year" /><br />
 
@@ -45,7 +50,7 @@
             <label asp-for="Notes">Notes: </label>
             <textarea asp-for="Notes" rows="2"></textarea><br />
 
-            <button type="submit">Add Movie</button>
+            <button type="submit" class="btn btn-outline-primary">Add Movie</button>
             <div asp-validation-summary="All"></div>
         </form>
     </div>
